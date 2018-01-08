@@ -1,0 +1,248 @@
+{% load staticfiles %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Creative - Start Bootstrap Theme</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
+
+    <!-- Custom Fonts -->
+    <link href="{% static 'creative/font-awesome/css/font-awesome.min.css' %}" rel="stylesheet" type="text/css">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,700italic,900,900italic' rel='stylesheet' type='text/css'>
+
+    <!-- Plugin CSS -->
+    <link href="{% static 'creative/magnific-popup/magnific-popup.css' %}" rel="stylesheet">
+
+    <!-- Theme CSS -->
+    <link href="{% static 'css/creative.min.css' %}" rel="stylesheet">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+	<style>
+		.p_color {
+			color: black;
+		}
+	</style>
+
+</head>
+
+<body id="page-top">
+
+    <nav id="mainNav" class="navbar navbar-default navbar-fixed-top">
+        <div class="container-fluid p_color">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header p_color">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span> Menu <i class="fa fa-bars"></i>
+                </button>
+                <a class="navbar-brand page-scroll" href="#page-top">Fogo<span class"sr-only">NoRabo</span></a>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a class="page-scroll" href="#about">Sobre</a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="#services">Serviços</a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="#portfolio">Portfolio</a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="#contact">Contato</a>
+                    </li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container-fluid -->
+    </nav>
+
+    <header>
+            <div class="header-content" style="width: 100%; height: 100%; overflow: hidden;">
+				<img src="{% static 'img/banner.png' %}" class="img-responsive" alt="" style="height: 100%;">
+            </div>
+    </header>
+
+    <section class="bg-primary" id="about">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 text-center">
+                	<h2 class="section-heading p_color">FogoNoRabo Maçaricos de precisão!</h2>
+                    <hr class="light">
+                    <p class="text-faded p_color">
+						O maçarico MicroChama utiliza GLP e Oxigênio para solda e fundição de ouro, prata, cobre ou latão e deve corresponder às necessidades básicas na fabricação de joias.MicroChama é um equipamento essencial em uma oficina de ourives.
+					</p>
+					<p>
+						O MicroChama de Gás e oxigênio tem muita precisão e atinge temperaturas superiores a 2.000ºC que permitem fundir diversos materiais como Ouro,Prata,Cobre e Latão.
+					</p>
+					<p>
+						Para fundir quantidades de prata ou ouro superiores a 100g é aconselhado uma ponteira com vazão maior, aplicando assim uma maior potencia para garantir que a fundição fica feita com a devida qualidade.
+					</p>
+					<p class="p_color">
+						O MicroChama é ideal para serviços de soldas de precisão, contendo uma chama totalmente controlável com reguladores de pressão de GLP e oxigênio. Para sua maior segurança o MicroChama contem uma válvula de retenção corta chama,montada no interior,as conexões são feitas através de um painel com engate rápido e mangueiras anti-chamas.
+					</p>
+                    <a href="#services" class="page-scroll btn btn-default btn-xl sr-button">Veja Mais!</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="services">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <h2 class="section-heading">Conheça nossos serviços!</h2>
+                    <hr class="primary">
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-3 col-md-6 text-center">
+                    <div class="service-box">
+                        <i class="fa fa-4x fa-diamond text-primary sr-icons"></i>
+                        <h3>OS Maçaricos</h3>
+                        <p class="text-muted">Produção dos Maçaricos com peças de qualidade.</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 text-center">
+                    <div class="service-box">
+                        <i class="fa fa-4x fa-paper-plane text-primary sr-icons"></i>
+                        <h3>A instalação</h3>
+                        <p class="text-muted">Instalação in-loco com garantia do serviço prestado!</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 text-center">
+                    <div class="service-box">
+                        <i class="fa fa-4x fa-newspaper-o text-primary sr-icons"></i>
+                        <h3>Manutenção</h3>
+                        <p class="text-muted">Trabalhamos com manutenções preventivas, com peças de reposição a pronta entrega.</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 text-center">
+                    <div class="service-box">
+                        <i class="fa fa-4x fa-heart text-primary sr-icons"></i>
+                        <h3>Atenção total aos nossos clientes</h3>
+                        <p class="text-muted">Seja um parceiro FogoNoRabo e conheça a qualidade de nossos serviços.!</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="no-padding" id="portfolio">
+        <div class="container-fluid">
+            <div class="row no-gutter popup-gallery">
+                <div class="col-lg-4 col-sm-6">
+                    <a href="{% static 'img/06.jpg' %}" class="portfolio-box">
+                        <img src="{% static 'img/06.jpg' %}" class="img-responsive" alt="">
+                        <div class="portfolio-box-caption">
+                            <div class="portfolio-box-caption-content">
+                                <div class="project-category text-faded">
+                                    Maçaricos
+                                </div>
+                                <div class="project-name">
+                                    Fogo No Rabo
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-lg-4 col-sm-6">
+                    <a href="{% static 'img/07.jpg' %}" class="portfolio-box">
+                        <img src="{% static 'img/07.jpg' %}" class="img-responsive" alt="">
+                        <div class="portfolio-box-caption">
+                            <div class="portfolio-box-caption-content">
+                                <div class="project-category text-faded">
+                                    Maçaricos
+                                </div>
+                                <div class="project-name">
+                                    Fogo No Rabo
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-lg-4 col-sm-6" style="overflow: hidden;">
+                    <a href="{% static 'img/06.jpg' %}" class="portfolio-box">
+                        <img src="{% static 'img/06.jpg' %}" class="img-responsive" alt="">
+                        <div class="portfolio-box-caption">
+                            <div class="portfolio-box-caption-content">
+                                <div class="project-category text-faded">
+                                    Maçaricos
+                                </div>
+                                <div class="project-name">
+                                    Fogo No Rabo
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <aside class="bg-dark">
+        <div class="container text-center">
+            <div class="call-to-action">
+                <h2>FogoNoRabo, esquentando mais que seu coração!</h2>
+                <a href="http://www.kanazuchi.com/about" class="btn btn-default btn-xl sr-button">Veja!</a>
+            </div>
+        </div>
+    </aside>
+
+    <section id="contact">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 text-center">
+                    <h2 class="section-heading">Entre em contato!</h2>
+                    <hr class="primary">
+                    <p>Pronto pra conhecer nossos serviços e ter um dos melhores maçaricos em sua empresa?</p>
+                </div>
+                <div class="col-lg-4 col-lg-offset-2 text-center">
+                    <i class="fa fa-phone fa-3x sr-contact"></i>
+                    <p>+55 19 9 9173-6406</p>
+                </div>
+                <div class="col-lg-4 text-center">
+                    <i class="fa fa-envelope-o fa-3x sr-contact"></i>
+                    <p><a href="mailto:your-email@your-domain.com">contato@fogonorabo.com</a></p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- jQuery -->
+    <script src="{% static 'creative/jquery/jquery.min.js' %}"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="{% static 'creative/bootstrap/js/bootstrap.min.js' %}"></script>
+
+    <!-- Plugin JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
+    <script src="{% static 'creative/scrollreveal/scrollreveal.min.js' %}"></script>
+    <script src="{% static 'creative/magnific-popup/jquery.magnific-popup.min.js' %}"></script>
+
+    <!-- Theme JavaScript -->
+    <script src="{% static 'js/creative.min.js' %}"></script>
+
+</body>
+
+</html>

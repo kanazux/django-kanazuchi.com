@@ -1,0 +1,10 @@
+{% extends 'blog/about_tmplt.html' %}
+{% load staticfiles %}
+{% block content %}
+<div class='content-block' style='width: auto; height: 70%; text-align: left 100px; margin-left: 100px;'>
+{% for i, v in d.items %}
+<b>{{i}}: </b>{{v}}
+<br/>
+{% endfor %}
+</div>
+{% endblock content %}

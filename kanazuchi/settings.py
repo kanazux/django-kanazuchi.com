@@ -23,10 +23,10 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = '*v=dfvyi@js)h6b#8qg5tq2igo&e+piq-aiz1k^h+mgg3khxti'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False 
+DEBUG = False
 DEBUG404 = True
 
-ALLOWED_HOSTS = ['*', 'localhost', '127.0.0.1', 'dann.kanazuchi.com']
+ALLOWED_HOSTS = ['*', 'localhost', '127.0.0.1', '*.kanazuchi.com']
 
 
 # Application definition
@@ -39,11 +39,9 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'blog',
-    'about',
 ]
 
 MIDDLEWARE = [
-	'blog.middleware.SimpleSubdomainMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -59,7 +57,6 @@ ROOT_URLCONF = 'kanazuchi.urls'
 
 SUBDOMAIN_URLCONFS = {
 	None	: 'blog.urls',
-	'about'	: 'blog.urls.about',
 	}
 
 TEMPLATES = [
@@ -80,7 +77,6 @@ TEMPLATES = [
 
 TEMPLATES_DIR = [
 		'/usr/local/www/kanazuchi/blog/templates/',
-		'/usr/local/www/kanazuchi/about/templates/',
 	]
 
 WSGI_APPLICATION = 'kanazuchi.wsgi.application'
@@ -119,14 +115,10 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/1.10/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
-
+LANGUAGE_CODE = 'pt-br'
 TIME_ZONE = 'America/Sao_Paulo'
-
 USE_I18N = True
-
 USE_L10N = True
-
 USE_TZ = True
 
 

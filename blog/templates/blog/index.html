@@ -70,7 +70,7 @@
 					{% for x in ultimas %}
 					<div>
 						<img class='owl-item' hover='opacity: 0.5' style='height: 80%' src="{% static "" %}fotas_site/ultimas/{{x}}" alt="{{x}}">
-						<!--<a href='http://dann.kanazuchi.com/galery.html?&dir=ultimas'>{{x|ssplit:x}}</a>-->
+						<!--<a href='http://kanazuchi.com/galery.html?&dir=ultimas'>{{x|ssplit:x}}</a>-->
 					</div>
 					{% endfor %}
 			</div>
@@ -88,7 +88,7 @@
 				<div class="block-content">
 					{% for k, v in n_dirs.items %}
 					<div class="col-sm-4 blog-post" style='padding: 5px'>
-						<a href="http://dann.kanazuchi.com/galery.html?&dir={{k}}">
+						<a href="http://kanazuchi.com/galery.html?&dir={{k}}">
 						<img style='height: 220px' class='img-rounded' src="{% static "" %}fotas_site/thumb_{{k}}/{{v}}" alt="{{v}}">
 						<h4><span>{{k}}</span></h4></a>
 					</div>

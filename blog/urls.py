@@ -10,5 +10,4 @@ urlpatterns = [
     url(r'fogonorabo', views.fogonorabo),
     url(r'tarik', views.tarik),
     url(r'familia', views.familia),
-    url(r'spdsw', views.spdsw),
     ]

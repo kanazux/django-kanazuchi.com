@@ -10,6 +10,7 @@ from oauth2client.client import AccessTokenCredentials
 from oauth2client import gce
 
 client_id, client_sec = filter(None, open('g_api', 'r').read().split('\n')) 
+print '"{}"'.format(client_id), '"{}"'.format(client_sec)
 oauth_scope = 'https://www.googleapis.com/auth/drive'
 
 redirect_uri = 'urn:ietf:wg:oauth:2.0:oob'

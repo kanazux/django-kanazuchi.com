@@ -1,0 +1,100 @@
+{% extends 'blog/tmplt.html' %}
+{% load staticfiles %}
+{% block content %}
+{% load ssplit %}
+	<style>
+	.owl-item {
+    	border: 5px solid #ECF0F1;
+	    box-shadow: 0px 0px 0px 10px #ECF0F1;
+    	border-radius: 15px;
+	    -moz-border-radius: 15px;
+    	-webkit-border-radius: 15px;
+	}
+	img:hover {
+    	opacity: 0.7;
+		filter: alpha(opacity=70); /* For IE8 and earlier */
+	}
+	</style>
+	<div id="carousel-header" class="carousel slide" data-ride="carousel" data-interval="8000">
+
+		<!-- Wrapper for slides -->
+		<div class="carousel-inner">
+			<div class="camera-icon hidden-sm hidden-xs">
+				<div class="circle">
+					<div style='filter: alpha(opacity=50); opacity: 0.4;' class="hexagon">
+						<i class="fa  fa-camera"></i>
+					</div>
+				</div>
+			</div>
+
+			<div class="item active">
+				<img src="{% static 'fotas_site/screen_quadro.jpg' %}" alt="">
+			</div>
+
+			<div class="item">
+				<img src="{% static 'fotas_site/screen_lotus.jpg' %}" alt="">
+			</div>
+		</div>
+
+		<!-- Controls -->
+		<a class="left carousel-control" href="#carousel-header" role="button" data-slide="next">
+			<img src="{% static 'blog/img/left.png' %}" alt="Previous">
+		</a>
+		<a class="right carousel-control" href="#carousel-header" role="button" data-slide="next">
+			<img src="{% static 'blog/img/right.png' %}" alt="Next">
+		</a>
+	</div>
+
+	<div id="about" class="content-block content-block-cyan">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-6 col-md-offset-3">
+					<h1>DaNN KaNa</h1>
+					<p class="text-justify" style="font-family:monospace; font-size: 16px">
+						Fotografos amadores, apaixonados pela natureza e bits.<br/>
+						Muito cafe series e filmes dos mais variados generos.<br/> 
+						Game players. Dependentes tecno<span style='color: gray'>[logicos]</span>.
+					</p>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div id="projects" class="recent-projects">
+		<div class="recent-projects-title">
+		   	Ultimos registros 
+		</div>
+
+		<div class="recent-projects-content content-block-gray" style='border: 10px solid; border-color: #ECF0F1; border-radius: 10px;'>
+			<div id="owl-example" class='owl-carousel'>
+					{% for x in ultimas %}
+					<div>
+						<img class='owl-item' hover='opacity: 0.5' style='height: 80%' src="{% static "" %}fotas_site/ultimas/{{x}}" alt="{{x}}">
+						<!--<a href='http://kanazuchi.com/galery.html?&dir=ultimas'>{{x|ssplit:x}}</a>-->
+					</div>
+					{% endfor %}
+			</div>
+		</div>
+	</div><!-- /.recent-projects -->
+
+	<div id="blog" class="content-block content-block-gray">
+		<br/>
+		<div class="container">
+			<header class="block-heading cleafix">
+				<h1 class='owl-item'><b>Registros.</b></h1>
+				<h3 class='owl-item'><b>Lembrancas.</b></h3>
+			</header>
+			<section class="block-body">
+				<div class="block-content">
+					{% for k, v in n_dirs.items %}
+					<div class="col-sm-4 blog-post" style='padding: 5px'>
+						<a href="http://kanazuchi.com/galery.html?&dir={{k}}">
+						<img style='height: 220px' class='img-rounded' src="{% static "" %}fotas_site/thumb_{{k}}/{{v}}" alt="{{v}}">
+						<h4><span>{{k}}</span></h4></a>
+					</div>
+					{% endfor %}
+				</div>
+			</section>
+		</div><!--/container-->
+	</div><!-- /.content-block content-blog-gray -->
+{% endblock content %}

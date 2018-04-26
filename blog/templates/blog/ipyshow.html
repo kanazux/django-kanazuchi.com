@@ -1,0 +1,51 @@
+{% extends 'blog/about_tmplt.html' %}
+{% load fontawesome %}
+{% load staticfiles %}
+{% load replace_ %}
+{% block content %}
+
+<div class='content-block' style='width: 100%; height: auto; margin: 0 auto;'>
+    <div class='content' style='text-align: center; width: 100%;'>
+        <a href="http://github.com/kanazux/ipy-show", target="_blank">
+            <div style="font-size: 100px; text-align: center; margin: 0 75px; text-shadow: 1.2px 1.2px 10px black;" class="fa fa-github"></div>
+        </a>
+        <a href="https://www.linkedin.com/in/silvioapsilva/", target="_blank">
+            <div style="font-size: 100px; text-align: center; margin: 0 75px; text-shadow: 1.2px 1.2px 10px black;" class="fa fa-linkedin"></div>
+        </a>
+        <a href="https://pypi.org/project/ipy-show/", target="_blank">
+            <div style="font-size: 100px; text-align: center; margin: 0 75px; text-shadow: 1.2px 1.2px 10px black;" class="fa fa-cloud-download"></div>
+        </a>
+        <a href="https://twitter.com/kanazux", target="_blank">
+            <div style="font-size: 100px; text-align: center; margin: 0 75px; text-shadow: 1.2px 1.2px 10px black;" class="fa fa-twitter"></div>
+        </a>
+    </div>
+    <br/><br/>
+    <div class='content' id='form' style='align: center; text-align: center; margin: 0 0;'>
+        <br/>
+        <form method="POST" class="post-form" style="text-align: center;">{% csrf_token %}
+            <p style="width: auto; text-align: center; margin: 0 10;">IP: {{ form.ip }} </p><br/>
+            <button type="submit" class="save btn btn-default">Calcule</button>
+        </form>
+        <br/><br/>
+        <div style='width: 500px; text-align: center; display: inline-block; margin: 0 auto;'>
+            {% if print_output != None %}
+                <br/>
+                <table style="border-corner: 5px; border: 5px solid black; padding: 15px;">
+                    {% for item, data in output %}
+                    <tr style="border: 1px solid black; padding: 5px 20px 5px 20px; vertical-align: middle">
+                        <td style="border: 2px solid; padding: 5px 20px 5px 20px; vertical-align: middle;">{{ item|replace_:item }}</td>
+                        <td style="border: 2px solid; padding: 5px 20px 5px 20px; vertical-align: middle;">{{ data }}</td>
+                    </tr>
+                    {% endfor %}
+                </table>
+            {% endif %}
+            {% if print_help %}
+                {% for x in phelp %}
+                    <p style='text-align: left; margin: 0 auto; font-family: monospace;'>{{ x }}</p>
+                {% endfor %}
+            {% endif %}
+        </div>
+    </div>
+</div>
+
+{% endblock content %}

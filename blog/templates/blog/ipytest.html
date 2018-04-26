@@ -1,0 +1,97 @@
+{% extends 'blog/about_tmplt.html' %}
+{% load staticfiles %}
+{% load replace_ %}
+{% load replace_blank %}
+{% block content %}
+
+<div class='content-block' style='width: auto; height: 100%; margin: 0 auto;'>
+    <div class='content' style='text-align: center; width: 100%;'>
+        <a href="http://github.com/kanazux/ipy-show", target="_blank">
+            <div style="font-size: 100px; text-align: center; margin: 0 75px; text-shadow: 1.2px 1.2px 10px black;" class="fa fa-github"></div>
+        </a>
+        <a href="https://www.linkedin.com/in/silvioapsilva/", target="_blank">
+            <div style="font-size: 100px; text-align: center; margin: 0 75px; text-shadow: 1.2px 1.2px 10px black;" class="fa fa-linkedin"></div>
+        </a>
+        <a href="https://pypi.org/project/ipy-show/", target="_blank">
+            <div style="font-size: 100px; text-align: center; margin: 0 75px; text-shadow: 1.2px 1.2px 10px black;" class="fa fa-cloud-download"></div>
+        </a>
+        <a href="https://twitter.com/kanazux", target="_blank">
+            <div style="font-size: 100px; text-align: center; margin: 0 75px; text-shadow: 1.2px 1.2px 10px black;" class="fa fa-twitter"></div>
+        </a>
+    </div>
+    <br/><br/>
+    <div class='content' id='form' style='align: center; text-align: center; margin: 0 auto;'>
+        {% if form %}
+        <div style='width: 600px; text-align: center; display: inline-block; margin: 0 auto;'>
+            <form method="POST" class="post-form" style="text-align: center;">{% csrf_token %}
+                <input id='ip_mask' name='ip_mask' class='btn' style='background-color: black; color: white;' type='text' value="{{ ip_mask }}"></input>
+                <br/><br/>
+                <table style="text-align: center; padding: 15px;">
+                    <tr style="padding: 5px 20px 5px 20px; vertical-align: middle">
+                        <td style="padding: 5px 20px 5px 20px; vertical-align: middle; text-align: left; margin: 0 auto;">Binary IP:</td>
+                        <td style="padding: 5px 20px 5px 20px; vertical-align: middle; text-align: left; margin: 0 auto;">{{ form.binary_ip }}</td>
+                    </tr>
+                    <tr style="padding: 5px 20px 5px 20px; vertical-align: middle">
+                        <td style="padding: 5px 20px 5px 20px; vertical-align: middle; text-align: left; margin: 0 auto;">Binary Mask:</td>
+                        <td style="padding: 5px 20px 5px 20px; vertical-align: middle; text-align: left; margin: 0 auto;">{{ form.binary_mask }}</td>
+                    </tr>
+                    <tr style="padding: 5px 20px 5px 20px; vertical-align: middle">
+                        <td style="padding: 5px 20px 5px 20px; vertical-align: middle; text-align: left; margin: 0 auto;">CIDR Mask:</td>
+                        <td style="padding: 5px 20px 5px 20px; vertical-align: middle; text-align: left; margin: 0 auto;">{{ form.cidr_mask }}</td>
+                    </tr>
+                    <tr style="padding: 5px 20px 5px 20px; vertical-align: middle">
+                        <td style="padding: 5px 20px 5px 20px; vertical-align: middle; text-align: left; margin: 0 auto;">Network IP:</td>
+                        <td style="padding: 5px 20px 5px 20px; vertical-align: middle; text-align: left; margin: 0 auto;">{{ form.network_ip }}</td>
+                    </tr>
+                    <tr style="padding: 5px 20px 5px 20px; vertical-align: middle">
+                        <td style="padding: 5px 20px 5px 20px; vertical-align: middle; text-align: left; margin: 0 auto;">Broadcast IP:</td>
+                        <td style="padding: 5px 20px 5px 20px; vertical-align: middle; text-align: left; margin: 0 auto;">{{ form.broadcast_ip }}</td>
+                    </tr>
+                    <tr style="padding: 5px 20px 5px 20px; vertical-align: middle">
+                        <td style="padding: 5px 20px 5px 20px; vertical-align: middle; text-align: left; margin: 0 auto;">Class IP:</td>
+                        <td style="padding: 5px 20px 5px 20px; vertical-align: middle; text-align: left; margin: 0 auto;">{{ form.class_ip }}</td>
+                    </tr>
+                </table>
+                <br/>
+                <button type="submit" style='background-color: black; color: white;' class="save btn-outline-danger btn-lg">Checar</button>
+                <a href="http://kanazuchi.com/ipytest"><button type="button" style='background-color: black; color: white;' class="save btn-outline-danger btn-lg" onClick="autofill();return false;">Novo Ip</button></a>
+            </form>
+        </div>
+        {% endif %}
+        <div style='width: 500px; text-align: center; margin: 0 auto;'>
+            {% if print_output != None %}
+            <input id='ip_mask' name='ip_mask' class='btn' style='background-color: black; color: white;' type='text' value="{{ ip_mask }}"></input>
+            <br/><br/>
+            <table style="border-corner: 5px; border: 5px solid black; padding: 15px;">
+                {% for item, data in output %}
+                <tr style="border: 1px solid black; padding: 5px 20px 5px 20px; vertical-align: middle">
+                    <td style="border: 2px solid; padding: 5px 20px 5px 20px; vertical-align: middle;">{{ item|replace_:item }}</td>
+                    <td style="border: 2px solid; padding: 5px 20px 5px 20px; vertical-align: middle;">{{ data }}</td>
+                </tr>
+                {% endfor %}
+            </table>
+            <br/>
+            <a href="http://kanazuchi.com/ipytest"><button type="button" style='background-color: black; color: white;' class="save btn-outline-danger btn-lg">Novo Ip</button></a>
+            {% endif %}
+            {% if print_help %}
+                <br/>
+                {% for item, data in error_fields %}
+                <table style="padding: 15px; width: 100%;">
+                    <tr style="padding: 5px 20px 5px 20px; vertical-align: middle; text-align: left;">
+                        <td style="width: 36%; text-align: left; padding: 5px 20px 5px 20px; vertical-align: middle;"><b>{{ item }}</b></td>
+                        <td style="text-align: left; padding: 5px 20px 5px 20px; vertical-align: middle; color: red;">{{ data|replace_blank:data }}</td>
+                    </tr>
+                </table>
+                {% endfor %}
+                <br/>
+                <button type="save" style='background-color: red; color: black;' class="save btn-outline-danger btn-lg">HELP</button>
+                <br/><br/>
+                {% for x in phelp %}
+                    <b><p style='text-align: left; margin: 0 auto; font-family: monospace;'>{{ x }}</p></b>
+                {% endfor %}
+            {% endif %}
+        </div>
+    </div>
+</div>
+
+{% endblock content %}

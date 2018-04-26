@@ -1,3 +1,7 @@
 *.pyc
 blog/static/fotas_site
 tools/g_api
+blog/lib64
+blog/lib/
+blog/pyvenv.cfg
+blog/share/

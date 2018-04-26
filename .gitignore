@@ -5,3 +5,4 @@ blog/lib64
 blog/lib/
 blog/pyvenv.cfg
 blog/share/
+__pycache__

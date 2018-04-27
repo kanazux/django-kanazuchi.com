@@ -1,8 +1,9 @@
 *.pyc
-blog/static/fotas_site
+blog/static/galery
 tools/g_api
 blog/lib64
-blog/lib/
+blog/lib
+blog/bin
 blog/pyvenv.cfg
-blog/share/
+blog/share
 __pycache__

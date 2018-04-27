@@ -8,6 +8,6 @@ urlpatterns = [
     url(r'teste', views.teste),
     url(r'ipyshow', views.ipyshow),
     url(r'ipytest', views.ipytest),
-    url(r'about', views.about),
+    url(r'photos', views.photos),
     url(r'familia', views.familia),
     ]

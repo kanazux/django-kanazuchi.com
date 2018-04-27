@@ -25,31 +25,35 @@ def replace_(word):
 
 
 def index(request):
+    return render(request, 'blog/index.html', {})
+
+
+def photos(request):
     p = re.compile(r"[silvio|screen|minino]")
     diretorios = filter(None, [x for x in os.listdir(
-        "/usr/local/www/kanazuchi/blog/static/fotas_site") if os.path.isdir(
-            '/usr/local/www/kanazuchi/blog/static/fotas_site/{}'.format(x))
+        "/usr/local/www/kanazuchi/blog/static/galery") if os.path.isdir(
+            '/usr/local/www/kanazuchi/blog/static/galery/{}'.format(x))
                                if 'thumb' not in x if 'ultima' not in x
                                if 'mid' not in x])
     # uri = request.META["REQUEST_URI"]
     ultimas = [d for d in os.listdir(
-        '/usr/local/www/kanazuchi/blog/static/fotas_site/thumb_ultimas/')
+        '/usr/local/www/kanazuchi/blog/static/galery/thumb_ultimas/')
                if not p.match(d)]
     n_dirs = {}
     for x in diretorios:
         n_dirs[x] = sorted(
             set(os.listdir(
-                "/usr/local/www/kanazuchi/blog/static/fotas_site/{}".format(
+                "/usr/local/www/kanazuchi/blog/static/galery/{}".format(
                     x))))[0]
-    return render(request, 'blog/index.html', {'diretorios': diretorios,
-                                               'n_dirs': n_dirs,
-                                               'ultimas': ultimas})
+    return render(request, 'blog/photos.html', {'diretorios': diretorios,
+                                                'n_dirs': n_dirs,
+                                                'ultimas': ultimas})
 
 
 def galery(request):
     diretorio = request.GET.get('dir')
     images = os.listdir(
-        '/usr/local/www/kanazuchi/blog/static/fotas_site/{}/'.format(
+        '/usr/local/www/kanazuchi/blog/static/galery/{}/'.format(
             diretorio))
     return render(request, 'blog/galery.html', {'images': images,
                                                 'diretorio': diretorio})
@@ -162,10 +166,6 @@ def teste(request):
         if 'wsgi' not in i and i != 'DOCUMENT_ROOT':
             d[i] = request.META.get(i)
     return render(request, 'blog/teste.html', {'d': d})
-
-
-def about(request):
-    return render(request, 'blog/about.html', {})
 
 
 def familia(request):

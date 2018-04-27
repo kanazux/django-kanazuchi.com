@@ -16,20 +16,15 @@ import os
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 
-# Quick-start development settings - unsuitable for production
-# See https://docs.djangoproject.com/en/1.10/howto/deployment/checklist/
+SECRET_KEY = ''
 
-# SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = '*v=dfvyi@js)h6b#8qg5tq2igo&e+piq-aiz1k^h+mgg3khxti'
 
-# SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 DEBUG404 = True
 
-ALLOWED_HOSTS = ['*', 'localhost', '127.0.0.1', '*.kanazuchi.com']
 
+ALLOWED_HOSTS = ['*', 'localhost', '*.kanazuchi.com']
 
-# Application definition
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -43,7 +38,9 @@ INSTALLED_APPS = [
     'blog',
 ]
 
+
 FONTAWESOME_CSS_URL = "../static/css/font-awesome.min.css"
+
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -55,11 +52,11 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
+
 SITE_ID = 1
-
 ROOT_URLCONF = 'kanazuchi.urls'
-
 SUBDOMAIN_URLCONFS = {None: 'blog.urls'}
+
 
 TEMPLATES = [{
     'BACKEND': 'django.template.backends.django.DjangoTemplates',
@@ -72,13 +69,11 @@ TEMPLATES = [{
             'django.contrib.auth.context_processors.auth',
             'django.contrib.messages.context_processors.messages']}}]
 
+
 TEMPLATES_DIR = [
     '/usr/local/www/kanazuchi/blog/templates/']
 WSGI_APPLICATION = 'kanazuchi.wsgi.application'
 
-
-# Database
-# https://docs.djangoproject.com/en/1.10/ref/settings/#databases
 
 DATABASES = {
     'default': {
@@ -87,9 +82,6 @@ DATABASES = {
     }
 }
 
-
-# Password validation
-# https://docs.djangoproject.com/en/1.10/ref/settings/#auth-password-validators
 
 AUTH_PASSWORD_VALIDATORS = [{'NAME': ('django.contrib.auth.password_validation'
                                       '.UserAttributeSimilarityValidator')},
@@ -101,9 +93,6 @@ AUTH_PASSWORD_VALIDATORS = [{'NAME': ('django.contrib.auth.password_validation'
                                       '.NumericPasswordValidator')}]
 
 
-# Internationalization
-# https://docs.djangoproject.com/en/1.10/topics/i18n/
-
 LANGUAGE_CODE = 'pt-br'
 TIME_ZONE = 'America/Sao_Paulo'
 USE_I18N = True
@@ -111,12 +100,9 @@ USE_L10N = True
 USE_TZ = True
 
 
-# Static files (CSS, JavaScript, Images)
-# https://docs.djangoproject.com/en/1.10/howto/static-files/
-
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.abspath(os.path.dirname(__file__))
-# STATIC_ROOT = "blog/static"
+
 
 STATICFILES_DIRS = (
     os.path.join('static'), '/usr/local/www/kanazuchi/blog/static')
